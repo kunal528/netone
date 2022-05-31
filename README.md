@@ -9,7 +9,32 @@ This app was initialized with [create-near-app]
 
 # [Live Demo](https://netone.netlify.app/)
 
-<iframe src="https://www.veed.io/embed/05d4f3bd-201b-4ae0-ac0b-b0589fe245df" width="744" height="504" frameborder="0" title="Project Name" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+# Video
+[![IMAGE ALT TEXT](https://i.imgur.com/mgzPOZ1.png)](https://www.veed.io/embed/05d4f3bd-201b-4ae0-ac0b-b0589fe245df)
+
+# ScreenShots
+
+## Landing Page
+![Landing](https://i.imgur.com/mgzPOZ1.png)
+
+
+## SignUp Page
+![SignUp](https://i.imgur.com/VyLQ19E.png)
+
+## HomePage
+![HomePage](https://i.imgur.com/UK9J35g.png)
+
+## User Page
+![HomePage](https://i.imgur.com/oDmz6cu.png)
+
+## Profile
+![HomePage](https://i.imgur.com/WrDI8Uy.png)
+
+## Create Post Page
+![HomePage](https://i.imgur.com/Ue6jD13.png)
+
+
 
 
 # Tech Stack
