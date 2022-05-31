@@ -1,4 +1,7 @@
-netone
+Netone
+
+![https://netone.netlify.app/](https://raw.githubusercontent.com/kunal528/netone/master/src/assets/Netone.png)
+
 ==================
 
 This app was initialized with [create-near-app]
