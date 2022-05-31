@@ -1,35 +1,30 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { useParams } from 'react-router-dom'
 import Post from '../components/Post'
 import UserTile from '../components/UserTile'
-import { logout } from '../utils'
 
-const HomePage = ({ postEdit }) => {
-    const [posts, setPosts] = React.useState([])
+const PostDetail = () => {
+    const { postId } = useParams()
+    const [post, setPost] = React.useState(null)
     const [users, setUsers] = React.useState([])
-    const [loading, setLoading] = React.useState(false)
-
+    const [loading, setLoading] = React.useState(true)
     async function getData() {
-        setLoading(true)
-        var posts = await window.contract.getPosts()
+        var post = await window.contract.getPost({
+            id: postId
+        })
+
         var users = await window.contract.getUsers()
-        if (posts) {
-            setPosts(posts)
-        }
         if (users) {
             setUsers(users)
+        }
+        if (post) {
+            setPost(post)
         }
         setLoading(false)
     }
 
-    useEffect(() => {
-        getData()
-    }, [postEdit])
 
-    useEffect(() => {
-        if (!window.walletConnection.isSignedIn()) {
-            window.history.pushState({}, '', '/login')
-            window.history.go()
-        }
+    React.useEffect(() => {
         getData()
     }, [])
     if (loading) {
@@ -37,14 +32,11 @@ const HomePage = ({ postEdit }) => {
             <div className="loader">Loading...</div>
         </div>
     }
+
     return (
         <div className='main-section'>
             <div className='view-section'>
-                {
-                    posts.map((e, i) => {
-                        return <Post key={i} post={e} onChange={getData} />
-                    })
-                }
+                {post ? <Post key={0} post={post} onChange={getData} /> : <h1 style={{ color: 'white', padding: '1rem' }}>Post Not Found</h1>}
             </div>
             <div className='sidebar-section'>
                 <div className='following-section'>
@@ -61,4 +53,4 @@ const HomePage = ({ postEdit }) => {
     )
 }
 
-export default HomePage
+export default PostDetail

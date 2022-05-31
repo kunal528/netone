@@ -5,7 +5,7 @@ import Blockies from 'react-blockies'
 import { Link } from 'react-router-dom'
 import CreatePost from '../pages/CreatePost'
 
-const Navbar = () => {
+const Navbar = ({onPost}) => {
 
     const [user, setUser] = useState(null)
     const [show, setShow] = React.useState(false)
@@ -21,7 +21,7 @@ const Navbar = () => {
                 <Blockies seed={window.accountId} className='blockies' />
                 <div>{window.accountId}</div>
             </div></Link>}
-            {show && <CreatePost onPost={() => { }} onHide={() => { setShow(false) }} />}
+            {show && <CreatePost onPost={onPost} onHide={() => { setShow(false) }} />}
         </div>
     )
 }

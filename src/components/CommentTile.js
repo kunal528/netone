@@ -1,5 +1,6 @@
 import React from 'react'
 import Blockies from 'react-blockies'
+import { Link } from 'react-router-dom'
 
 const CommentTile = ({ comment }) => {
     const [user, setUser] = React.useState(null)
@@ -15,7 +16,7 @@ const CommentTile = ({ comment }) => {
         <div className='comment-tile'>
             <Blockies seed={comment.account} className="blockies" size={6} />
             <div>
-                <div className='comment-creator'>{user?.name ?? ''}</div>
+                <Link to={`/user/${user?.account}`} style={{textDecoration: 'none'}}><div className='comment-creator'>{user?.name ?? ''}</div></Link>
                 <div className='comment-content'>{`⤷ ${comment.comment}`}</div>
             </div>
         </div>
